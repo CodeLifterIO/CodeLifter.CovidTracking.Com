@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageVersion>0.1</PackageVersion>
+    <Authors>Andrew Palmer</Authors>
+    <Owners>Andrew Palmer, CodeLifterIO</Owners>
+    <Title>CodeLifter.CovidTrackingCom</Title>
+    <Description>An easy to use c# implementation of the service found at https://covidtracking.com/api</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CodeLifter.Http" Version="1.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Models\Enums\" />
+  </ItemGroup>
+</Project>
