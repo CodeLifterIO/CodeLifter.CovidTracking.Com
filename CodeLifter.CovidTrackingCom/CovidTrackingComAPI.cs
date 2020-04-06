@@ -15,8 +15,9 @@ namespace CodeLifter.CovidTrackingCom
         Task<DailyStateInfo> GetDailyStates(StateCode state, string date);//format YYYYMMDD
         Task<StateDescription> GetStateDescription(StateCode state);
         Task<List<StateDescription>> GetStateDescriptions();
-        Task<List<Country>> GetUnitedStatesCurrent();
+        Task<Country> GetUnitedStatesCurrent();
         Task<List<Country>> GetUnitedStatesDaily();
+        Task<Country> GetUnitedStatesByDate(string date);//format YYYYMMDD
         Task<List<County>> GetCounties();
     }
 
@@ -91,14 +92,28 @@ namespace CodeLifter.CovidTrackingCom
             return response;
         }
 
-        public async Task<List<Country>> GetUnitedStatesCurrent()
+        public async Task<Country> GetUnitedStatesCurrent()
         {
-            throw new System.NotImplementedException();
+            string source = $"us.json";
+            HttpRequest request = new HttpRequest(source);
+            var response = await Client.Get<List<Country>>(request);
+            return response[0];
         }
 
         public async Task<List<Country>> GetUnitedStatesDaily()
         {
-            throw new System.NotImplementedException();
+            string source = $"us/daily.json";
+            HttpRequest request = new HttpRequest(source);
+            var response = await Client.Get<List<Country>>(request);
+            return response;
+        }
+
+        public async Task<Country> GetUnitedStatesByDate(string date)
+        {
+            string source = $"us/daily.json?date={date}";
+            HttpRequest request = new HttpRequest(source);
+            var response = await Client.Get<Country>(request);
+            return response;
         }
 
         public async Task<List<County>> GetCounties()

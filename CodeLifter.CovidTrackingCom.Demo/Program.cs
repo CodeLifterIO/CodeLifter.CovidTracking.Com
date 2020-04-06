@@ -26,6 +26,9 @@ namespace CodeLifter.CovidTrackingCom.Demo
             //DailyStateInfo dailyByStateAndDate = await api.GetDailyStates(StateCode.WA, "20200316");
             StateDescription waDescription = await api.GetStateDescription(StateCode.WA);
             List<StateDescription> stateDescriptions = await api.GetStateDescriptions();
+            Country UsaCurrentStatus = await api.GetUnitedStatesCurrent();
+            List<Country> UsaHistorical = await api.GetUnitedStatesDaily();
+            Country UsaApril3 = await api.GetUnitedStatesByDate("20200403");
         }
     }
 }
