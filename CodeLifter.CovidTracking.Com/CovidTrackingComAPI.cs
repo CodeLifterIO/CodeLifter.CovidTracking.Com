@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using CodeLifter.CovidTrackingCom.Models;
-using CodeLifter.CovidTrackingCom.Models.Enums;
+using CodeLifter.CovidTracking.Com.Models;
+using CodeLifter.CovidTracking.Com.Models.Enums;
 using CodeLifter.Http;
 
-namespace CodeLifter.CovidTrackingCom
+namespace CodeLifter.CovidTracking.Com
 {
     public interface ICovidTrackingComApi
     {

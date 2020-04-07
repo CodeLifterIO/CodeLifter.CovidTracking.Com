@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace CodeLifter.CovidTrackingCom.Models
+namespace CodeLifter.CovidTracking.Com.Models
 {
     public class DailyStateInfo : State
     {

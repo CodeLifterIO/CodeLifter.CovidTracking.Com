@@ -2,11 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageVersion>0.1</PackageVersion>
+    <PackageVersion>0.2</PackageVersion>
     <Authors>Andrew Palmer</Authors>
     <Owners>Andrew Palmer, CodeLifterIO</Owners>
     <Title>CodeLifter.CovidTrackingCom</Title>
     <Description>An easy to use c# implementation of the service found at https://covidtracking.com/api</Description>
+    <PackOnBuild>true</PackOnBuild>
+    <PackageId>CodeLifter.CovidTracking.Com</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

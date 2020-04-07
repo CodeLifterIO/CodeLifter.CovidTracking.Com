@@ -6,6 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CodeLifter.CovidTrackingCom\CodeLifter.CovidTrackingCom.csproj" />
+    <ProjectReference Include="..\CodeLifter.CovidTracking.Com\CodeLifter.CovidTracking.Com.csproj" />
   </ItemGroup>
 </Project>

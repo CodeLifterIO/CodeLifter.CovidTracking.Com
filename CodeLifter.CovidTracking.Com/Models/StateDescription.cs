@@ -1,8 +1,8 @@
 ﻿using System;
 using Newtonsoft.Json;
-using CodeLifter.CovidTrackingCom.Models.Enums;
+using CodeLifter.CovidTracking.Com.Models.Enums;
 
-namespace CodeLifter.CovidTrackingCom.Models
+namespace CodeLifter.CovidTracking.Com.Models
 {
     public class StateDescription
     {

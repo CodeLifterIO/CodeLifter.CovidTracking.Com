@@ -1,5 +1,5 @@
 ﻿using System;
-namespace CodeLifter.CovidTrackingCom.Models.Enums
+namespace CodeLifter.CovidTracking.Com.Models.Enums
 {
     public enum StateCode
     {

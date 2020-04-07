@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using CodeLifter.CovidTrackingCom.Models;
-using CodeLifter.CovidTrackingCom.Models.Enums;
+using CodeLifter.CovidTracking.Com;
+using CodeLifter.CovidTracking.Com.Models;
+using CodeLifter.CovidTracking.Com.Models.Enums;
 
 namespace CodeLifter.CovidTrackingCom.Demo
 {

@@ -1,8 +1,8 @@
 ﻿using System;
-using CodeLifter.CovidTrackingCom.Models.Enums;
+using CodeLifter.CovidTracking.Com.Models.Enums;
 using Newtonsoft.Json;
 
-namespace CodeLifter.CovidTrackingCom.Models
+namespace CodeLifter.CovidTracking.Com.Models
 {
     public class County
     {
