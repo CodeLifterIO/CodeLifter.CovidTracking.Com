@@ -10,25 +10,23 @@ namespace CodeLifter.CovidTrackingCom.Demo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
             Task t = useCovidTrackingComAPI();
             t.Wait();
         }
 
         private static async Task useCovidTrackingComAPI()
         {
-
             CovidTrackingComAPI api = new CovidTrackingComAPI();
             List<CurrentStateInfo> currents = await api.GetCurrentStates();
             List<DailyStateInfo> dailies = await api.GetDailyStates();
-            DailyStateInfo dailyByState = await api.GetDailyStates(StateCode.WA);
-            //DailyStateInfo dailyByDate = await api.GetDailyStates("20200316");
-            //DailyStateInfo dailyByStateAndDate = await api.GetDailyStates(StateCode.WA, "20200316");
+            List<DailyStateInfo> dailyByState = await api.GetDailyStates(StateCode.WA);
+            List<DailyStateInfo> dailyByDate = await api.GetDailyStates("20200316");
+            DailyStateInfo dailyByStateAndDate = await api.GetDailyState(StateCode.WA, "20200316");
             StateDescription waDescription = await api.GetStateDescription(StateCode.WA);
             List<StateDescription> stateDescriptions = await api.GetStateDescriptions();
-            Country UsaCurrentStatus = await api.GetUnitedStatesCurrent();
-            List<Country> UsaHistorical = await api.GetUnitedStatesDaily();
-            Country UsaApril3 = await api.GetUnitedStatesByDate("20200403");
+            Country UsaCurrentStatus = await api.GetUnitedStates();
+            List<Country> UsaHistorical = await api.GetUnitedStatesHistorical();
+            Country UsaApril3 = await api.GetUnitedStates("20200403");
         }
     }
 }
