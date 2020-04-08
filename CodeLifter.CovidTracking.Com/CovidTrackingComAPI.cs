@@ -32,7 +32,7 @@ namespace CodeLifter.CovidTracking.Com
         public CovidTrackingComAPI()
         {
             BaseURI = "https://covidtracking.com/api";
-            Client = new HttpClient(BaseURI, true, true);
+            Client = new HttpClient(BaseURI);
         }
 
         public CovidTrackingComAPI(IHttpClient client)
