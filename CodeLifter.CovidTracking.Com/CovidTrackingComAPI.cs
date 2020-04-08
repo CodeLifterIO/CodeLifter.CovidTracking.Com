@@ -32,7 +32,7 @@ namespace CodeLifter.CovidTracking.Com
         public CovidTrackingComAPI()
         {
             BaseURI = "https://covidtracking.com/api";
-            Client = new HttpClient(BaseURI, false, false);
+            Client = new HttpClient(BaseURI, true, true);
         }
 
         public CovidTrackingComAPI(IHttpClient client)
@@ -43,14 +43,14 @@ namespace CodeLifter.CovidTracking.Com
         public async Task<List<CurrentStateInfo>> GetCurrentStates()
         {
             HttpRequest request = new HttpRequest("v1/states/current.json");
-            var response = await Client.Get<List<CurrentStateInfo>>(request);
+            var response = await Client.GetFromCache<List<CurrentStateInfo>>(request, "all-current-states");
             return response;
         }
 
         public async Task<List<DailyStateInfo>> GetDailyStates()
         {
             HttpRequest request = new HttpRequest("v1/states/daily.json");
-            var response = await Client.Get<List<DailyStateInfo>>(request);
+            var response = await Client.GetFromCache<List<DailyStateInfo>>(request, "all-daily-states");
             return response;
         }
 
@@ -58,7 +58,7 @@ namespace CodeLifter.CovidTracking.Com
         {
             string source = $"states/daily.json?state={state.ToString()}";
             HttpRequest request = new HttpRequest(source);
-            var response = await Client.Get<List<DailyStateInfo>>(request);
+            var response = await Client.GetFromCache<List<DailyStateInfo>>(request, $"all-dailies-for-{state.ToString()}");
             return response;
         }
 
@@ -66,7 +66,7 @@ namespace CodeLifter.CovidTracking.Com
         {
             string source = $"states/daily.json?date={date}";
             HttpRequest request = new HttpRequest(source);
-            var response = await Client.Get<List<DailyStateInfo>>(request);
+            var response = await Client.GetFromCache<List<DailyStateInfo>>(request, $"get-all-states-for-{date}");
             return response;
         }
 
@@ -74,7 +74,7 @@ namespace CodeLifter.CovidTracking.Com
         {
             string source = $"states/daily.json?state={state.ToString()}&date={date}";
             HttpRequest request = new HttpRequest(source);
-            var response = await Client.Get<DailyStateInfo>(request);
+            var response = await Client.GetFromCache<DailyStateInfo>(request, $"get-state-data-for-{state.ToString()}-on-{date}");
             return response;
         }
 
@@ -82,7 +82,7 @@ namespace CodeLifter.CovidTracking.Com
         {
             string source = $"states/info.json?state={state.ToString()}";
             HttpRequest request = new HttpRequest(source);
-            var response = await Client.Get<StateDescription>(request);
+            var response = await Client.GetFromCache<StateDescription>(request, $"get-state-description-for-{state.ToString()}");
             return response;
         }
 
@@ -90,7 +90,7 @@ namespace CodeLifter.CovidTracking.Com
         {
             string source = $"states/info.json";
             HttpRequest request = new HttpRequest(source);
-            var response = await Client.Get<List<StateDescription>>(request);
+            var response = await Client.GetFromCache<List<StateDescription>>(request, "get-all-state-descriptions");
             return response;
         }
 
@@ -98,7 +98,7 @@ namespace CodeLifter.CovidTracking.Com
         {
             string source = $"us.json";
             HttpRequest request = new HttpRequest(source);
-            var response = await Client.Get<List<Country>>(request);
+            var response = await Client.GetFromCache<List<Country>>(request, "get-current-data-for-entire-US");
             return response[0];
         }
 
@@ -106,7 +106,7 @@ namespace CodeLifter.CovidTracking.Com
         {
             string source = $"us/daily.json";
             HttpRequest request = new HttpRequest(source);
-            var response = await Client.Get<List<Country>>(request);
+            var response = await Client.GetFromCache<List<Country>>(request, "get-historical-data-for-entire-US");
             return response;
         }
 
@@ -114,7 +114,7 @@ namespace CodeLifter.CovidTracking.Com
         {
             string source = $"us/daily.json?date={date}";
             HttpRequest request = new HttpRequest(source);
-            var response = await Client.Get<Country>(request);
+            var response = await Client.GetFromCache<Country>(request, $"get-data-for-entire-us--on-{date}");
             return response;
         }
     }

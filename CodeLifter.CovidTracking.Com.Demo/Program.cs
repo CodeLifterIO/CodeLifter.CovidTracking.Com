@@ -8,15 +8,21 @@ namespace CodeLifter.CovidTrackingCom.Demo
 {
     class Program
     {
+        private static CovidTrackingComAPI api;
+
         static void Main(string[] args)
         {
+            api = new CovidTrackingComAPI();
+
             Task t = useCovidTrackingComAPI();
             t.Wait();
+
+            Task t2 = useCovidTrackingComAPI();
+            t2.Wait();
         }
 
         private static async Task useCovidTrackingComAPI()
         {
-            CovidTrackingComAPI api = new CovidTrackingComAPI();
             List<CurrentStateInfo> currents = await api.GetCurrentStates();
             List<DailyStateInfo> dailies = await api.GetDailyStates();
             List<DailyStateInfo> dailyByState = await api.GetDailyStates(StateCode.WA);
