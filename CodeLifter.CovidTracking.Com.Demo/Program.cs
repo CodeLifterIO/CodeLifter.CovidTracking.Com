@@ -17,6 +17,7 @@ namespace CodeLifter.CovidTrackingCom.Demo
             Task t = useCovidTrackingComAPI();
             t.Wait();
 
+            //this is just to show the cache getting hit successfully
             Task t2 = useCovidTrackingComAPI();
             t2.Wait();
         }
